@@ -112,6 +112,7 @@
     + Identifica el origen.
     + Si es un error incluye traza.
     + El mensaje ha de ser autoexplicativo.
+	
 ##Herramientas
 + [Beautify](https://www.npmjs.com/package/js-beautify)
 + [jscs](https://www.npmjs.com/package/gulp-jscs)
