@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Impress Tutorial</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="http://bartaz.github.io/impress.js/css/impress-demo.css">
+        <style>
+          ul{
+            list-style-type: circle;
+          }
+
+        </style>
+    </head>
+    <body>
+      <div id="impress">
+        <div id="types" class="step slide" data-x="1000" data-y="-1500">
+          <p>Javascript tiene tipos</p>
+          <p>Los tipos vienen definidos por el valor y no por la variable</p>
+          <ul>
+            <li>object</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>number</li>
+            <li>string</li>
+            <li>boolean</li>
+            <li>Symbol</li>
+          </ul>
+        </div>
+        <div id="typeofOperator" class="step slide" data-x="2000" data-y="-1500">
+          <ul>
+            <li>typeof {} === 'object'</li>
+            <li>typeof null === 'object'</li>
+            <li>typeof undefined === 'undefined'</li>
+            <li>typeof 42 === 'number'</li>
+            <li>typeof "42" === 'string'</li>
+            <li>typeof false === 'boolean'</li>
+            <li>typeof symbol() === 'symbol'</li>
+            <li>Más:
+              <ul>
+                <li>typeof function(){} = "function"</li>
+                <li>typeof [] = "object"</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="arrayType" class="step slide" data-x="3000" data-y="-1500">
+          <p>Arrays</p>
+          <ul>
+            <li>Contenedores de otros tipos</li>
+            <li>sparse arrays</li>
+            <li>Indexados numericamente pero aceptan propiedades no numéricas</li>
+            <li>var a = []; a["13"] = 1; expect(a).to.have.length(14)</li>
+            <li>
+              Como detectar un array
+              <ul>
+                <li>Array.isArray(obj)</li>
+                <li>obj instanceof Array</li>
+                <li>Object.prototype.toString.call(obj) === '[object Array]'</li>
+                <li>typeof obj === "object" && typeof obj.length === "number" </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="arrayLike" class="step slide" data-x="4000" data-y="-1500">
+          <p>Arrays like strategies</p>
+          <ul>
+            <li>Usar slice.</li>
+            <li>Usar prototypo + call</li>
+            <li>Array.from (ES6)</li>
+          </ul>
+        </div>
+        <div id="string" class="step slide" data-x="5000" data-y="-1500">
+          <p>Strings</p>
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript" src="vendor/impress.js"></script>
+      <script>impress().init();</script>
+    </body>
+</html>
