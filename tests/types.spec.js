@@ -127,6 +127,20 @@
         })
       });
     });
-    
+    describe("natives", function(){
+      it("Podemos ver el tipo interno parseando el tipo", function(){
+         function parseNative(obj){
+          return Object.prototype.toString.call(obj);
+         }
+         expect(parseNative(new Boolean(false))).to.match(/Boolean/);
+         expect(parseNative(Array([]))).to.match(/Array/);
+         expect(parseNative(new Number(12))).to.match(/Number/);
+         expect(parseNative(new String())).to.match(/String/);
+      })
+      it("new Boolean(false) es truthy", function(){
+        expect(new Boolean(false)).to.be.ok;
+      });
+
+    })  
   });
 })()

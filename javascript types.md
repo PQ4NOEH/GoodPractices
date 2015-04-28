@@ -1,6 +1,6 @@
 #tipos en javascript
 Javascript tiene tipos
-Los tipos vienen definidos por el valor y no por la variable</p>
+Los tipos vienen definidos por el valor y no por la variable
 + object
 + null
 + undefined
@@ -78,4 +78,13 @@ Los tipos vienen definidos por el valor y no por la variable</p>
     + Si lo pasamos a string pasa como 0
     + Si lo pasamos de string a número pasa como -0
     + Si lo comparamos con +0 indica que son iguales
-* Object.is compara de forma stricta la igualdad de valores funciona correctamente incluso para NaN y -0
++ Object.is compara de forma stricta la igualdad de valores funciona correctamente incluso para NaN y -0
+
+#Natives
++ funciones nativas.
++ Su proposito es el de generar objetos que encapsulan tipos primitivos para que asi estos tengan una serie de métodos predefinidos.
++ Hay que usarlos con cuidado ya que pueden tener comportamientos inesperados como ejemplo:
+```javascript
+new Boolean(false) == true;//true
+```
++ They
