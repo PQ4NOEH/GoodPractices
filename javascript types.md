@@ -161,6 +161,40 @@ Los tipos vienen definidos por el valor y no por la variable
 ##Date to Number
 + +new Date() ==> hora en sistemas unix (milisegundos transcurridos desde el 1 de enero de 1970 UTC)
 
-##Bitwise not ~
+##number coercion
 + ~a.indexOf( "lo" )
 + `~~49.6 ==> 49`
++ +"35"
++ Number("35");
++ parseInt("35") y parseFloat("35")
+  + tolera caracteres no numéricos
+  + Segundo argumento [radix](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/parseInt) indica la base numerica si no se indica asume base-10 antes de ES5 si no se indicaba lo intentaba deducir de la cadena.
+  + parse(1/0, 19) ==> 18
+
+##Boolean
++ Boolean("0");
++ !!"0"
+
+##Implicit coercion
+
+##Selector operators
++ Selecciona una de las expresiones del conjunto
++ asignacion condicional
++ guard operator
+
+##Symbol coercion
++ No permite la conversion ímplicita a un valor string. Esto falla `"" + Symbol("something")`
++ No se puede convertir a´un valor numérico
++ Se puede convertir tanto explicitamente como implicitamente a un valor booleano
+
+## == vs ===
++ == Permite la conversión de valores
+  + string == number o number == string. convierte el string en numero Number(string)
+  + si hay un booleano lo convierte a Number.
+  + null == undefined o undefined == null ==> true
+  + Objetos/funciones/arrays
+    + Si el otro elemento es number o string ToPrimitive(valueOf || toString || typeErrors)
++ === NO permite la conversión de valores. Dos casos  excepcionales:
+  + NaN === NaN
+  + +0 === -0
+

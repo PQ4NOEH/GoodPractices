@@ -153,8 +153,77 @@
           for(; i < miArray.length; i++ ){
             expect(miArray[i]).to.be.undefined;
           }
-        })
-      })
-    })  
+        });
+      });
+    });  
+    describe("coercion", function(){
+      describe("Implicit coercion", function(){
+        it("The bitwise operator ~ can be used to round numbers to the floor", function(){
+          expect(~~42.2).to.be.equals(42);
+          expect(~~-42.2).to.be.equals(-42);
+        });
+        it("The + operator can be used to implicit coerce to a string", function(){
+          expect("" + 42).to.be.a("string");
+          expect("" + 42).to.be.equals("42");
+
+          expect("" + [1,34,74]).to.be.a("string");
+          expect("" + [1,34,74]).to.be.equals("1,34,74");          
+        });
+        it("!! can be used to implicitly coerce to boolean", function(){
+          expect(!!0).to.be.false;
+          expect(!!"").to.be.false;
+          expect(!![]).to.be.true;
+          expect(!!{}).to.be.true;
+        });
+        it("- - can be used to implicitly coerce to number", function(){
+          expect(- -"78.021").to.be.equals(78.021);
+          var aNan = - -undefined;
+          expect(aNan === aNan).to.be.false;
+          expect(- -null).to.be.equals(0);
+        });
+        it("using '+' operator with two arrays will produce a string", function(){
+          expect([1,2,4] + [23,true]).to.be.a("string");
+          expect([1,2,4] + [23,true]).to.be.equals("1,2,423,true");
+        });
+      });
+    });
+    describe("selector operators: || &&", function(){
+      it("They select one of the operand expresions", function(){
+        var a = 42;
+        var b = "abc";
+        var c = null;
+
+        expect(a || b).to.be.equals(a);
+        expect(a && b).to.be.equals(b);
+
+        expect(c || b).to.be.equals(b);
+        expect(c && b).to.be.equals(c);
+      });
+      it("|| may be used to assign default value to a parameter", function(){
+        function getDefaultIfFalsy(a){
+          return a || 25;
+        }
+        expect(getDefaultIfFalsy("")).to.be.equals(25);
+        expect(getDefaultIfFalsy(null)).to.be.equals(25);
+        expect(getDefaultIfFalsy(64)).to.be.equals(64);
+        expect(getDefaultIfFalsy(true)).to.be.true;
+      });
+      it("&& may be used to conditional execute code (Guard operator)", function(){
+        var counter = 0;
+        function counterPlusOne(){
+          counter ++;
+        }
+        null && counterPlusOne()
+        expect(counter).to.be.equals(0);
+        "" && counterPlusOne()
+        expect(counter).to.be.equals(0);
+        {} && counterPlusOne()
+        expect(counter).to.be.equals(1);
+        0 && counterPlusOne()
+        expect(counter).to.be.equals(1);
+        1 && counterPlusOne()
+        expect(counter).to.be.equals(1);
+      });
+    });
   });
 })()
