@@ -140,7 +140,21 @@
       it("new Boolean(false) es truthy", function(){
         expect(new Boolean(false)).to.be.ok;
       });
-
+      it("valueOf retorna el valor original.", function(){
+        expect(new Object(false).valueOf()).to.be.equals(false);
+        expect(new Object(0xf32).valueOf()).to.be.equals(3890);
+        expect(new Object("un string").valueOf()).to.be.equals("un string");
+        expect(new Object([45,12.4,true,""]).valueOf()).to.have.members([45,12.4,true,""]);
+      });
+      describe("Array", function(){
+        it("Si solo se le pasa un valor numérico se usa este para establecer la longitud del array", function(){
+          var i=0, miArray = Array(25);
+          expect(miArray).to.have.length(25);
+          for(; i < miArray.length; i++ ){
+            expect(miArray[i]).to.be.undefined;
+          }
+        })
+      })
     })  
   });
 })()

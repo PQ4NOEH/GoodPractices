@@ -83,8 +83,37 @@ Los tipos vienen definidos por el valor y no por la variable
 #Natives
 + funciones nativas.
 + Su proposito es el de generar objetos que encapsulan tipos primitivos para que asi estos tengan una serie de métodos predefinidos.
-+ Hay que usarlos con cuidado ya que pueden tener comportamientos inesperados como ejemplo:
-```javascript
-new Boolean(false) == true;//true
-```
-+ They
++ Como norma general no uses natives, deja que en caso de ser necesario la plataforma encapsule el tipo. Razones para no encapsular manualmente:
+  + Comportamientos inesperados como ejemplo `new Boolean(false) == true;//true`
+  + Rendimientos
++ Dos formas de encapsular un tipo:
+  + constructor específico: Array, String, Number,...
+  + new Object(tipoConcreto)
++ Desencapsula el tipo mediante la funcion valueOf
+
+## Object, Function y RegExp
++ No uses Object()
++ Usa Function() solo cuando necesites definir dinámicamente los parámetros o el cuerpo de una función.
++ RegExp() Solo tiene sentido cuando la expresión regular hay que definirla al vuelo, si no usa el literal por razones de claridad y rendimiento (El runtime es capaz de precompilar y cachear el literal).
+
+##Array
++ No requiere el uso de 'new'
++ Si solo se proporciona un elemento y este es un número, se usa este para establecer la longitud del array
++ Emily the strange:
+  + `Array([undefined, undefined, undefined]);`
+  + `Array.apply(null,{ length: 3 })`
+  + `Array(3)`
+
+##Date y Error
++ No requiere el uso de 'new'
++ El principal motivo para usar Error es que captura la pila de ejecución en el objeto (Error("").stack) 
+
+##Symbol
++ Se introduce en ES6
++ valores especiales únicos que pueden ser usados como propiedades en objetos con muy baja probabilidad de colisión
+
+##Native prototypes
++ Cada uno de los constructores tiene un prototipo propio con un conjunto de funciones
++ Function.prototype ==> una funcion, RegExp.prototype ==> una expresion regular expresion, Array.prototype ==> un array vacio
+
+#Coercion
