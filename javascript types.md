@@ -121,7 +121,7 @@ Los tipos vienen definidos por el valor y no por la variable
 + null ==> "null"
 + undefined ==> "undefined"
 + true ==> "true"
-+ numbers ...
++ numbers .... `"" + 23;`
 + {} ==> "[object Object]"
 + [1,2,4] ==> "1,2,4"
 
@@ -138,13 +138,29 @@ Los tipos vienen definidos por el valor y no por la variable
   + Hasta diez caracteres, los que esten por encima de los diez primeros se omiten.
 
 ##toNumber
-+ true ==> 1
-+ false ==> 0
-+ undefined ==> NaN
-+ null ==> 0
-+ string
++ Number( true ) ==> 1
++ Number( false ) ==> 0
++ Number( undefined ) ==> NaN
++ Number( null ) ==> 0
++ +string
   + Si la conversion falla ==> NaN
-  + Si la conversión funciona ==> El número pero hay unas cuantas [diferencias respecto a la evaluación de literales](https://es5.github.io/#x9.3.1) 
-+ Objects y arrays se convierten primero a su primitivo y con el resultado se aplican las reglas mencionadas.
-  1. Si el objeto tiene la función valueOf usa esta para obtener el primitivo
-  2. Si no usa la función toString()
+  + Si la conversión funciona ==> El número. Hay unas cuantas [diferencias respecto a la evaluación de literales](https://es5.github.io/#x9.3.1) 
++ Objects y arrays. Se convierten primero a su primitivo y con el resultado se aplican las reglas mencionadas.
+  + Si el objeto tiene la función valueOf usa esta para obtener el primitivo
+  + Si no usa la función toString()
+  + Si ninguna de las anteriores es capaz de retornar un tipo primitivo lanza un error TypeError
+
+##toBoolean
++ falsy values. Valores que al convertirlos a booleanos son false. Son:
+  + undefined
+  + null 
+  + +0, -0 y NaN
+  + ""
++ truthy values. Valores que al convertirlos a booleanos son false. todos los valores no incluidos en la lista de falsy values son truthy
+
+##Date to Number
++ +new Date() ==> hora en sistemas unix (milisegundos transcurridos desde el 1 de enero de 1970 UTC)
+
+##Bitwise not ~
++ ~a.indexOf( "lo" )
++ `~~49.6 ==> 49`
