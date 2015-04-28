@@ -117,3 +117,34 @@ Los tipos vienen definidos por el valor y no por la variable
 + Function.prototype ==> una funcion, RegExp.prototype ==> una expresion regular expresion, Array.prototype ==> un array vacio
 
 #Coercion
+##toString
++ null ==> "null"
++ undefined ==> "undefined"
++ true ==> "true"
++ numbers ...
++ {} ==> "[object Object]"
++ [1,2,4] ==> "1,2,4"
+
+##JSON como toString menos para
++ strings. "hola" ==> ""hola""
++ undefineds, functions, symbols and objects (con referencia circulas), no se pueden parsear por lo que JSON.stringify automaticamente omitirá estos valores menos un objeto con referencia circular.
++ En el caso de encontrar un objeto con referencia circular lanza un error
++ Si un objeto tiene el método toJSON se llamará a este para realizar el parseo del objeto.
++ [replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). El segundo argumento, Puede ser:
+  + Un array con los nombres de las propiedades que se han de incluir
+  + Una función que recibe el nombre y valor de la propiedad. Si devuelve undefined no se incluye si devuelve un valor se incluye.
++ [space] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify). El tercer argumento permite definir la identación que se usará. puede ser:
+  + Un número, que hace referencia al número de espacios en blanco para cada nivel de indentación.
+  + Hasta diez caracteres, los que esten por encima de los diez primeros se omiten.
+
+##toNumber
++ true ==> 1
++ false ==> 0
++ undefined ==> NaN
++ null ==> 0
++ string
+  + Si la conversion falla ==> NaN
+  + Si la conversión funciona ==> El número pero hay unas cuantas [diferencias respecto a la evaluación de literales](https://es5.github.io/#x9.3.1) 
++ Objects y arrays se convierten primero a su primitivo y con el resultado se aplican las reglas mencionadas.
+  1. Si el objeto tiene la función valueOf usa esta para obtener el primitivo
+  2. Si no usa la función toString()
