@@ -213,16 +213,84 @@
         function counterPlusOne(){
           counter ++;
         }
-        null && counterPlusOne()
+        null && counterPlusOne();
         expect(counter).to.be.equals(0);
-        "" && counterPlusOne()
+        "" && counterPlusOne();
         expect(counter).to.be.equals(0);
-        {} && counterPlusOne()
+        !!{} && counterPlusOne();
         expect(counter).to.be.equals(1);
-        0 && counterPlusOne()
+        0 && counterPlusOne();
         expect(counter).to.be.equals(1);
-        1 && counterPlusOne()
-        expect(counter).to.be.equals(1);
+        1 && counterPlusOne();
+        expect(counter).to.be.equals(2);
+      });
+    });
+    describe("Completion value", function(){
+      it("we can get the completion value of a code block by using eval", function(){
+        var a, b; 
+        expect(a).to.be.undefined;
+        a = eval("if(true){ b = 4 + 38;}");
+        expect(a).to.be.equals(42);
+      });
+      it("we can get the completion value of a code block by wrapping the code into a function", function(){
+        var a, b; 
+        expect(a).to.be.undefined;
+        a = function(){ if(true) return b = 4 + 38;}.call(this);
+        expect(a).to.be.equals(42);
+      });
+      it('do expression... wish you were here!!')
+    });
+    describe("Labled statements", function(){
+      it("May be used in break expression");
+      it("May be used in break expression");
+    });
+    describe("++a vs a++", function(){
+      it("++a first return a value and after increments a value", function(){
+        var a = 42, b;
+        b = a++;
+        expect(a).to.be.equals(43);
+        expect(b).to.be.equals(42);
+      });
+      it("a++ first increments a value and after return a value", function(){
+        var a = 42, b;
+        b = ++a;
+        expect(a).to.be.equals(43);
+        expect(b).to.be.equals(43);
+      });
+    });
+    describe("Operator precedence", function(){
+      it("complex example", function(){
+        var a = 42, 
+          b = "foo",
+          c = false,
+          d;
+        d = a && b || c ? c || b ? a : c && b : a;       
+        expect(a).to.be.equals(42);
+      });
+    });
+    describe("try ... finally", function(){
+      it("A return in the finally block overrides preceding returns", function(){
+        function overridePrevious(){
+          try{
+            return 2;
+          } finally{
+            return 4
+          }
+        }
+        expect(overridePrevious()).to.be.equals(4);
+      });
+      it("you can combine it with a label. DONT!!!!", function(){
+        function combinedWithBreakLabel(){
+          milabel:{
+            try{
+              return 2;
+            } finally{
+              break milabel;
+            }
+          };
+          return 32;
+        }
+        expect(combinedWithBreakLabel()).to.be.equals(32);
       });
     });
   });

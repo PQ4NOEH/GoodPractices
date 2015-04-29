@@ -1,0 +1,9 @@
+#append a querystring key with a dynamic value
+The problem with this approach is that you force the static file to be downloaded allways even if it's content has not changed.
+you could change the querystring value only if the file contents changes
+
+#ETag
+
+#change html url each time the file changes
+
+#THE CACHE MANIFEST
