@@ -339,3 +339,16 @@ Solo las expresiones necesarias para determinar el resultado de un statement se 
 ##switch
 + The match disallows coercion so it's like ===
 + To allow coercion use expresions in each case
+
+#js engines
++ Ecmascript is the former name for the standard spec
++ javascript is the browsers implementation of the spec
++ The [annex B](https://es5.github.io/B.html) discusses specific deviation from the oficial spec
++ The [Web ecmascript specification](https://javascript.spec.whatwg.org/) covers the diference between the oficial spec and the browser implementation
++ Host objects (console)
+  + They are falsy
+  + They do not have access to normal Object built-ins like toString()
+  + Not being overwritable
+  + Have certain predefined read-only props
+  + etc
+
