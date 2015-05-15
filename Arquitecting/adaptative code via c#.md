@@ -13,14 +13,13 @@
     + required
     + Prefered
     + Desired
-  + User story. As a [user role], I want to [behavior], so that [user value added]
-    + Developers working plan.
-      + plan what and how
-        + user interface mockups
-        + UML diagrams
-        + Break it into tasks
-      + Implementation
-      + UAT
+  + User story. As a [user role], I want to [behavior], so that [user value added]. Developers working plan.
+    + plan what and how
+      + user interface mockups
+      + UML diagrams
+      + Break it into tasks
+    + Implementation
+    + UAT
 + Roles
   + Product owner. Link between the client and the development team
     + Decide features to build.
