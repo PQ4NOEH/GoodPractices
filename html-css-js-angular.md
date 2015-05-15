@@ -237,6 +237,7 @@
   + Mantelo separado.
   + No lo modifiques de manera local: pull-request o fork
   + Documenta su uso
++ Si quieres generar documentacion considera usar [dgeni](https://github.com/angular/dgeni)
   
 
 
