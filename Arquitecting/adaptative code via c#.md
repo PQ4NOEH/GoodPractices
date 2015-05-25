@@ -93,4 +93,41 @@
 + Allows to change the behavior of a class without recompilation
 + It is used when a class needs to exhibit variant behavior depending on the the state of an object
 
-Favor composition over inheritance because inheritance makes the inheritor dependant on the implementation rather than on the sepcification
+#Duck-typing
++ In C# fullfilling and interface specification does not allow to treat the object as it was of the interface type, to do so the class has to explicitly implement the interface.
++ Different strategies to apply duck-typing:
+  + Using the dynamic keyword
+  + Impromptu interface. Is a library
+  + CLR duck-typing support. 
+    + Only support duck-typing for IEnumerable
+  + Mixins
+    + Extension methods. Limitations
+      + Testing. Static class do not lend themselves to be easily mocked.
+      + They can't hold per-instance state. 
+    + RE-motion Re-mix. Limitations
+      + You can't know the exact type of the object returned by the remix factory
+
+#Fluent interfaces
++ Improves readability
++ Very popular into configuration or FSM
+
+#Rules
++ Favor composition over inheritance because inheritance makes the inheritor dependant on the implementation rather than on the sepcification.
++ Favor constants vs magic numbers/strings.
++ Avoid editing existing code after being verified and deployed.
++ Marshall layer exceptions to it's own layer.
+
+
+UNIT TESTING
+#Test
++Every test is composed of three differents parts. AAA pattern
+  + The arrangement (preconditions)
+  + The performance of the act being tested.
+    + Should consist on one single interaction with the SUT
+  + The assertion
++ A tests is over-specified when it has knowledge of the SUT's implementation rather than its expected behavior
+
+#Mocking
++ fakes
++ moks
+
