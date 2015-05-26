@@ -131,3 +131,26 @@ UNIT TESTING
 + fakes
 + moks
 
+#Single Responsability Principle
+A class should have one, and only one, reason to change.
+
+#SRP and the decorator pattern
++ Each decorator class fulfills the contract of a given type
++ Each decorator Accepts one instance of the typed fulfilled
++ Allows to keep the decorated typed SRP while being extended by the decorator
+
+#Composite pattern
++ Is a specialization of the decorator pattern.
++ It allows you to treat many instances of a type as if they where one.
+
+#Predicate decorator
++ Allows to hide from clients the conditional execution of code
++ .net framework 2.0 has the predicate<T>
+
+#Branching decorators
++ As predicate decorator but instead of executing the delegation it choose wether one delegation or another depending on the predicate excution beinn true or false.
+
+#Lazy decorator
+
+In general decorator may be applied to include Aspects
+
