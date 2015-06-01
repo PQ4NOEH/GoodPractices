@@ -232,6 +232,7 @@
 +  Internacionaliacion
   +  Empieza desde el principio y mantenla
   +  Usa [angular-translate](http://www.ng-newsletter.com/posts/angular-translate.html)
+  +  Usa [format.io](http://formatjs.io/)
 + Librerías / código de terceros
   + Usar NPM / bower
   + Mantelo separado.
