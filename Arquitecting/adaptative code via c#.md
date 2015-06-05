@@ -55,6 +55,7 @@
 + Source lines of code
 + Unit test coverage
 + Cyclomatic complexity
+
 #Dependencies and layering
 + Types by code author
   + first-party 
@@ -97,14 +98,13 @@
 + In C# fullfilling and interface specification does not allow to treat the object as it was of the interface type, to do so the class has to explicitly implement the interface.
 + Different strategies to apply duck-typing:
   + Using the dynamic keyword
-  + Impromptu interface. Is a library
-  + CLR duck-typing support. 
-    + Only support duck-typing for IEnumerable
+  + [Impromptu interface](https://github.com/ekonbenefits/impromptu-interface). Is a library
+  + CLR duck-typing support. Only support duck-typing for IEnumerable
   + Mixins
     + Extension methods. Limitations
       + Testing. Static class do not lend themselves to be easily mocked.
       + They can't hold per-instance state. 
-    + RE-motion Re-mix. Limitations
+    + [RE-motion Re-mix](http://remix.codeplex.com/). Limitations
       + You can't know the exact type of the object returned by the remix factory
 
 #Fluent interfaces
@@ -134,23 +134,57 @@ UNIT TESTING
 #Single Responsability Principle
 A class should have one, and only one, reason to change.
 
-#SRP and the decorator pattern
+##SRP and the decorator pattern
 + Each decorator class fulfills the contract of a given type
 + Each decorator Accepts one instance of the typed fulfilled
 + Allows to keep the decorated typed SRP while being extended by the decorator
 
-#Composite pattern
+##Composite pattern
 + Is a specialization of the decorator pattern.
 + It allows you to treat many instances of a type as if they where one.
 
-#Predicate decorator
+##Predicate decorator
 + Allows to hide from clients the conditional execution of code
 + .net framework 2.0 has the predicate<T>
++ Different implementation decorator pattern
+  + Branching decorators. As predicate decorator but instead of executing the delegation it choose wether one delegation or another depending on the predicate excution beinn true or false.
+  + Lazy decorator. 
+  + In general decorator may be applied to include Aspects
 
-#Branching decorators
-+ As predicate decorator but instead of executing the delegation it choose wether one delegation or another depending on the predicate excution beinn true or false.
+#Open close principle.
++ A class should be close for modification but open for extension. Two exception:
+  + Bug fix.
+  + Client awarenes. When the changes does not compromise code clients.
++ Extension points. In order to be extensible a class should contain well defined extension points.
+  + virtual methods
+  + Abstract methods
+  + Interface inheritance
+  + When and how should i apply
+    + Predicted variation
+    + Stable interface
 
-#Lazy decorator
+#Liskov Substitution principle
++ Rules
+  + Contract
+    + preconditions can not be strengthened in a subtype
+    + postconditions can not be weakened in a subtype
+    + Invariants (conditions that must remain true) must be preserved in a subtype
+  + Variance
+    + There must be contravariance of the method arguments in the subtype.
+    + There must be coovariance of the return types in the subtype.
+    + No new exceptions can be thrown by the subtype unless they are part of the existing exception hierarchy.
++ Contracts
+  + Preconditions. all conditions necessary for a method to run reliable and without fault  
+  + Postconditions. Check whether an object has been left in a invalid state as a method is exited.
+  + Data invariants. A predicate that remains for the lifetime of an object.
++  variance
+  + contravariance.
+  + coovariance.
+  + invariant.
 
-In general decorator may be applied to include Aspects
+#Interface segregation
+
+
+
+
 

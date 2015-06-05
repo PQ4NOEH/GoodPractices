@@ -71,4 +71,60 @@
 ##When to use WCF
 
 ##Contracts and services
++ contracts
+  + Part of WCF explicitness
+  + Two types
+    + Data contracts
+      + request data
+      + response data
+    + Services
+    
+##Hosting
++ The listner
++ Two types
+  +  Web hosting
+    +  From .asmx days
+    +  Requires IIS
+    +  Does not require any specific code
+    +  Limited to HTTP unless you use WAS
+  +  Self hosting
+    + Any kind of application
+    + Requires code  
+
+##Web hosting
++ hosting handled by IIS
++ Limited to HTTP (without WAS)
++ Used to require .svc file
+
+##WAS
++ Does not work with IIS express
+
+##Proxies, channels & clients
++ consumming wcf complex
+  + pipe establishment
+  + Handshaking
+  + security exchange
+  + message transmision
++ Client needs Data & service contracts
++ One proxie per service
++ proxy methods use "channel" property from ClientBase<T>
++ client
+  1. generate a proxy. Two options:
+    + Generate a proxy  
+      + If there is one endpoint for the service does not need Ctor.
+      + If there is more than one endpoint it needs a Ctor two options:
+        + endpoint name.
+        + endpoint binding and address.
+    + ChannelFactory
+  2.- Instanciate proxy an do call as they were local calls. 
+  3.- Contract equivalence. Diferent binaries in the service and client. 
+    + Contracts names and member-operation names must be the same./use Name property of attribute to change.
+    + Contract namespaces must match / use Contract Namespace attribute (I can optionally use asembly.info)
+    + Version tolerant.
+      + DataContractSerializer
+      + It allows some diferences
+      + IExtensibleDataObject
+
+#In process services and threading
+
 
