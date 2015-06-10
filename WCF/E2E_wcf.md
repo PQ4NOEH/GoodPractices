@@ -126,5 +126,10 @@
       + IExtensibleDataObject
 
 #In process services and threading
++ Typically uses IPC binding
++ Client and service use the same contract
++ Can either use a proxy class or a channel proxy
++ [serviceBehavior(UseSincronizationContext=false)] forces the service to run on it's own workerProcess
++ to execute the code which runs on the background but needs to update the UI it uses SyncronizationContext and SendOrPostCallback
 
 
