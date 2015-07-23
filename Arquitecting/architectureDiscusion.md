@@ -3,6 +3,28 @@ General links
 + [Architecture styles Microsoft](https://msdn.microsoft.com/en-us/library/ee658117.aspx) 
 
 ## DDD
+
+### Concepts
++ Domain model. It's the idea of the domain a diagram try to convey
++ Ubiquitous language
++ transition to code
+  + Analisys model. It is about doing and analisys on how to adapt the ubiquitous language to code without coding. Has some problems:
+    + At the end the developers would have to adapt it.
+    + It does no deal with real coding problems.
+    + The generated models are abondened when coding starts.
+  + coders
++ Services
++ Value Objects
++ Entities. implementing entities in software means creating identity
++ Repository
++ Aggregates
++ Factories
++ Layers
+  + User interface
+  + Application. Coordinates application activity
+  + Domain. Domain implementation
+  + Infraestructure. Supporting library for each other
+
 ### Links
 + https://www.youtube.com/watch?v=QQdRRltJk2g
 + http://es.slideshare.net/PascalLaurin/implementing-ddd-with-c
