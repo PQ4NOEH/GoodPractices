@@ -1,0 +1,39 @@
+# What are the reactive extensions
+
+The reactive extensions extend the callback metaphor with linq to enable sequences of events and managing concurrency.
+Is a library that implements the IObservable<T> and IObserver<T>
+It will change the way you design and build software:
++ The way it tackles the observer pattern is a divorce from NET events
++ The way it tackles concurrency
++ The abundance of extension methods
++ The way it integrates with linq
+
+## Why
++ React to state changes.
++ Rx is linq to events.
++ Extensible
+
+## when to use
++ when managing events like: 
+  + Ui events
+  + Domain events like propertyChanged
+  + Infraestructure events like fileWatcher or WMI events
+  + Integration events
++ Manage concurrency on the purpose of offloading
+
+# Key types
++ IObserver<T>. 
++ Stream
++ IObservable<T>. 
+  + Is a simple interface with just one method "Subscribe".
+  + Is meant to be the "functional dual of IEnumerable<T>". this means that where IEnumerable can yield three things (the next value, an exception, the end of the sequence) so too can IObservable throught IObserver: OnNext(T), OnError(Exception), OnCompleted() 
++ ISubject<TSource,TResource>
+
+##Multicast delegates
+They exhibit the following less desirable features:
++ += -= unnatural
++ Events are dificult to compose
++ Events do not offer the ability to be easily queried
++ Are cause of memory leaks
++ Do not have a standard pattern for signaling completition
++ Provide almost no help for concurrency or multithreaded applications. To raise an event on a separate thread requires you to do al the plumbing

@@ -23,3 +23,5 @@ This solution involves splitting-up the data so you separate the responsability 
 + Complexity. 
   + shard-mapper. Now a layer must exist between the database and the client, to map the client request to the correct shard.
   + Design. you have to design carefully your database so the reads and writes are mostly done on one shard not across the shards. ([scatter gather queries](http://docs.mongodb.org/manual/core/distributed-queries/))
+
+### Consistent Hashing
