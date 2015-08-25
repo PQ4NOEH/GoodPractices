@@ -28,6 +28,17 @@ It will change the way you design and build software:
   + Is a simple interface with just one method "Subscribe".
   + Is meant to be the "functional dual of IEnumerable<T>". this means that where IEnumerable can yield three things (the next value, an exception, the end of the sequence) so too can IObservable throught IObserver: OnNext(T), OnError(Exception), OnCompleted() 
 + ISubject<TSource,TResource>
++ Subject<T>
++ ReplaySubject<T>. like subject but gives you past streams. It's handy to eliminate race conditions but on the other hand creats memory preasure becauses caches all past streams. It also admit a cache policy setting.
++ BehaviorSubject<T>. Like ReplaySubject<T> with minnor differences:
+  + Only caches the last publication.
+  + Requires an initial value.
+  + Does not mantain the cache once it has completed.
++ AsyncSubject<T>
+  + It only caches the last value
+  + It only flush the value when the secuence has completed
+
+When a secuence is completed no more activity can happend on it, A secuence can be completed by two ways: OnCompleted, OnError
 
 ##Multicast delegates
 They exhibit the following less desirable features:
@@ -37,3 +48,24 @@ They exhibit the following less desirable features:
 + Are cause of memory leaks
 + Do not have a standard pattern for signaling completition
 + Provide almost no help for concurrency or multithreaded applications. To raise an event on a separate thread requires you to do al the plumbing
+
+## Lifetime management
++ Custom disposable attributes
+  + Disposable
+  + BooleanDisposable
+  + CancellationDisposable
+  + CompositeDisposable
+  + ContextDisposable
+  + MultipleAsignmentDisposable
+  + RefCountDisposable
+  + ScheduledDisposable
+  + SerialDisposable
+  + SingleAssignmentDisposable
+
+## anamorphism akka unfold
++ Factories
+  + Observable.Return
+  + Observable.Empty
+  + Observable.Never
+  + Observable.Throw
+  + Observable.Create
