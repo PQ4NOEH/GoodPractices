@@ -69,3 +69,32 @@ They exhibit the following less desirable features:
   + Observable.Never
   + Observable.Throw
   + Observable.Create
++ Unfold
+  + Observable.Range
+  + Observable.Generate
+  + Observable.Interval
+  + Observable.Timer
++ Paradigm transition
+	+ Observable.Start
+  + Observable.FromEventPattern
+  + Task.ToObservable
+  + IEnumerable<T>.ToObservable
+  + Observable.FromAsyncPattern
+
+## Reducing a sequence
++ Filter & partition. Reduce the source sequence to a sequence with at most the same number of elements
+	+ where
+	+ Distinct
+	+ DistinctUntilChange
+	+ IgnoreElements
+	+ Skip
+	+ SkipWhile
+	+ SkipLast
+	+ SkipUntil
+	+ Take
+	+ TakeWhile
+	+ TakeLast
+	+ TakeUntil
+
++ Aggregation Operators. Reduce the source sequence to a sequence with a single element
++ Fold operators. Reduce the source sequence to a sequence with a single element as a scalar value
