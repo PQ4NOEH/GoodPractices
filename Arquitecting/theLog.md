@@ -26,3 +26,37 @@
   + Viewstamped replication
 
 # PART TWO DATA INTEGRATION
++ Definition: Making all the data an organization has available in all its services and systems.
++ hirarchy of needs:
+  1. Capturing relevant data
+  2. Put the data in an applicable processing environment
+  3. Model the data
+  4. Reporting, transform, analitics,...
++ Two Complications
+  +  The event data firehose. Event data records things that happends rather than things that are. 
+  +  The explosion of specialized data systems 
++ Solution. Log-structured data flow: "Take all the organization's data and put it into a central log for real-time subscription"
++ pub-sub beneficts
+  + A subscriber may crash without affecting the overall system
+  + Each subscriber consumes at its own rate
+  + Subscribers may be added or removed without affecting the system
+  + The subscriber only knows about the log nothing about the producer/s
++ log systems vs pub-sub or messaging system
+  + More specific term. Pub-sub onnly refers to inderecting addresing of messages
+  + Acts a kind of messaging system
+  + Guarantees durability
+  + Strong ordering semantics
++ Log system is the infrastructure but there are many more elements into play:
+  + Metadata
+  + Schemas
+  + Compability
+  + Event evolution
+
+# Relationship to ETL and the Data Warehouse
++ ETL is two things:
+  + It is an extraction and data cleanup process.
+  + Data restructuration for data warehousing queries.
+
+# Log files and events
+
+# Logs & real-time Stream processing

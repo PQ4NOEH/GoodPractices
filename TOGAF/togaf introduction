@@ -1,0 +1,29 @@
+# DISTRIBUTION
+1. Introduction. Concepts definitions, Changes between release notes.
+2. Architecture development method. Step-by-step approach to develop an enterprise architecture.
+3. ADM guideline and techniques. Collection of guidelines and techniques avalaible for use in applying TOGAF and the TOGAF ADM.
+4. Architecture Content framework. Describes the TOGAF content framework.
+5. Enterprise continuum & tools. Discusses apropiate taxonomies and tools to categorize and store the outputs of architecture activity within enterprise
+6. TOGAF reference models
+7. Architecture Capability framework
+
+## Definitions
++ enterprise: Any collection of organizations that has a common set of goals
+
+## Benefits
++ A more efficient business operation
+  + Lower business operation costs
+  + More agile organization
+  + Business capabilities shared across the organization
+  + Lower change management cost
+  + More flexible workforce
+  + Improved business productivity
++ A more efficient IT operation
+  + Lower software development, support and maintenance costs
+  + Increase portability of applications
+  + Improved interoperatibility and easier system and network management
+  + Improved ability to address critical enterprise-wide issues like security
+  + Easier upgrade and exchange of system components
+
+
+## 1.2 Executive overview
