@@ -62,6 +62,11 @@ They exhibit the following less desirable features:
   + SerialDisposable
   + SingleAssignmentDisposable
 
+## Concepts
++ Anamorphism. T ==> IObservable<T>
++ Catamorphism (reduce). IObservable<T> => T
++ Bind (map). IObservable<T1> ==> IObservable<T2>
+
 ## anamorphism akka unfold
 + Factories
   + Observable.Return
@@ -98,3 +103,44 @@ They exhibit the following less desirable features:
 
 + Aggregation Operators. Reduce the source sequence to a sequence with a single element
 + Fold operators. Reduce the source sequence to a sequence with a single element as a scalar value
+
+## Inspection
++ this methods reduce our sequence to a single element sequence.
+  + Any 
+  + All
+  + Contains
+  + DefaultIsEmpty
+  + ElementAt
+  + ElementAtOrDefault
+  + SequenceEqual
+
+## Aggregation
++ Count. Wont provide the count until it completes
++ Min
++ Max
++ Sum 
++ Average
++ Functional folds
+  + First
+  + Last
+  + Single
++ own aggregation functions, two ways:
+  + Aggregate function
+  + Scan
++ Partitioning
+  + GroupBy
+  + MinBy
+  + MaxBy
+
+## Sequence transformation
++ Select
++ SelectMany
++ Cast
++ OfType
++ TimeStamp
++ TimeInterval
++ Materialize
++ Dematerialize
+
+## Tamming the sequence
+

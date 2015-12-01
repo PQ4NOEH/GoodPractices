@@ -71,4 +71,12 @@ Same as Last but instead of using GET it uses POST
 
 ## Ignore caching
 + ETag mechanism
++ Use a cache built solution
+
+## Ignore HTTP status codes
+
+## Misusing Cookies
+
+## Breaking self-descriptiveness
+Every time you invent your own headers, formats or protocols you break the self-descriptiveness of your web API
 
