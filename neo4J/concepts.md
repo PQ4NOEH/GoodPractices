@@ -14,3 +14,14 @@
 + Schema
 + Index
 + Constraint
+
+# Graphs Types
++ Labeled property Graph model
+  + Contains nodes and relationships
+  + Nodes contain properties
+  + Nodes can be labeled with one or more labels
+  + Relationships are named and directed. And always have a start and end node.
+  + Relationships can also contain properties.
++ Resource description framework (RDF) triples.
++ Hypergraps
++ 
